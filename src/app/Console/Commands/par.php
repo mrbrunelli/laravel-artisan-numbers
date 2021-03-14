@@ -37,13 +37,13 @@ class par extends Command
      * @return string
      */
     public function serializeNumbers(array $n) {
-        $a = [];
+        $evenNumbers = [];
         for ($i = 0; $i < count($n); $i++) {
             if (Numbers::isEven($n[$i])) {
-                array_push($a, $n[$i]);
+                array_push($evenNumbers, $n[$i]);
             }
         }
-        return implode(', ', $a);
+        return implode(', ', $evenNumbers);
     }
 
     /**

@@ -37,13 +37,13 @@ class impar extends Command
      * @return string
      */
     public function serializeNumbers(array $n) {
-        $a = [];
+        $oddNumbers = [];
         for ($i = 0; $i < count($n); $i++) {
             if (Numbers::isOdd($n[$i])) {
-                array_push($a, $n[$i]);
+                array_push($oddNumbers, $n[$i]);
             }
         }
-        return implode(', ', $a);
+        return implode(', ', $oddNumbers);
     }
 
     /**
