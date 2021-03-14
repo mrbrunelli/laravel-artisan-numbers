@@ -45,16 +45,6 @@ class decrescente extends Command
     }
 
     /**
-     * Verifica se o número é ímpar
-     * 
-     * @return boolean
-     */
-    public function isOdd(int $n)
-    {
-        return $n % 2 != 0;
-    }
-
-    /**
      * Retorna números formatados e separados por vírgula
      * 
      * @return string
