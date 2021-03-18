@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('php:version', function() {
+    $this->info(phpversion());
+})->purpose('Exibe a versão atual do PHP.');
