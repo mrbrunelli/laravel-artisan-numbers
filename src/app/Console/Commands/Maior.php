@@ -5,21 +5,21 @@ namespace App\Console\Commands;
 use App\Helpers\Numbers;
 use Illuminate\Console\Command;
 
-class media extends Command
+class Maior extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'numeros:media {numeros*}';
+    protected $signature = 'numeros:maior {numeros*}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Retorna a média dos números';
+    protected $description = 'Retorna o maior número';
 
     /**
      * Create a new command instance.
@@ -39,7 +39,7 @@ class media extends Command
     public function handle()
     {
         $this->info(
-            sprintf('Números Média: %0.2f', Numbers::average($this->argument('numeros')))
+            sprintf('Números Maior: %d', Numbers::max($this->argument('numeros')))
         );
         return 0;
     }

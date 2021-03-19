@@ -5,21 +5,21 @@ namespace App\Console\Commands;
 use App\Helpers\Numbers;
 use Illuminate\Console\Command;
 
-class soma extends Command
+class Media extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'numeros:soma {numeros*}';
+    protected $signature = 'numeros:media {numeros*}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Retorna a soma dos números';
+    protected $description = 'Retorna a média dos números';
 
     /**
      * Create a new command instance.
@@ -39,7 +39,7 @@ class soma extends Command
     public function handle()
     {
         $this->info(
-            sprintf('Números Soma: %d', Numbers::sum($this->argument('numeros')))
+            sprintf('Números Média: %0.2f', Numbers::average($this->argument('numeros')))
         );
         return 0;
     }

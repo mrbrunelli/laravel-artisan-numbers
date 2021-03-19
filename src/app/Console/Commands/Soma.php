@@ -2,23 +2,24 @@
 
 namespace App\Console\Commands;
 
+use App\Helpers\Numbers;
 use Illuminate\Console\Command;
 
-class crescente extends Command
+class Soma extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'numeros:crescente {numeros*} {--limit=}';
+    protected $signature = 'numeros:soma {numeros*}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Retorna os números em ordem crescente';
+    protected $description = 'Retorna a soma dos números';
 
     /**
      * Create a new command instance.
@@ -31,18 +32,6 @@ class crescente extends Command
     }
 
     /**
-     * Retorna números formatados e separados por vírgula
-     * 
-     * @return string
-     */
-    public function serializeNumbers($n)
-    {
-        asort($n);
-        $limitedNumbers = array_slice($n, 0, $this->option('limit'));
-        return implode(', ', $limitedNumbers);
-    }
-
-    /**
      * Execute the console command.
      *
      * @return int
@@ -50,7 +39,7 @@ class crescente extends Command
     public function handle()
     {
         $this->info(
-            sprintf('Números Crescentes: %s', $this->serializeNumbers($this->argument('numeros')))
+            sprintf('Números Soma: %d', Numbers::sum($this->argument('numeros')))
         );
         return 0;
     }

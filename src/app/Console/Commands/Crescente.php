@@ -2,24 +2,23 @@
 
 namespace App\Console\Commands;
 
-use App\Helpers\Numbers;
 use Illuminate\Console\Command;
 
-class menor extends Command
+class Crescente extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'numeros:menor {numeros*}';
+    protected $signature = 'numeros:crescente {numeros*} {--limit=}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Retorna o menor número';
+    protected $description = 'Retorna os números em ordem crescente';
 
     /**
      * Create a new command instance.
@@ -32,6 +31,18 @@ class menor extends Command
     }
 
     /**
+     * Retorna números formatados e separados por vírgula
+     * 
+     * @return string
+     */
+    public function serializeNumbers($n)
+    {
+        asort($n);
+        $limitedNumbers = array_slice($n, 0, $this->option('limit'));
+        return implode(', ', $limitedNumbers);
+    }
+
+    /**
      * Execute the console command.
      *
      * @return int
@@ -39,7 +50,7 @@ class menor extends Command
     public function handle()
     {
         $this->info(
-            sprintf('Números Menor: %d', Numbers::min($this->argument('numeros')))
+            sprintf('Números Crescentes: %s', $this->serializeNumbers($this->argument('numeros')))
         );
         return 0;
     }

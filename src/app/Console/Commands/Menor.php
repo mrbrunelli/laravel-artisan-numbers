@@ -5,21 +5,21 @@ namespace App\Console\Commands;
 use App\Helpers\Numbers;
 use Illuminate\Console\Command;
 
-class maior extends Command
+class Menor extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'numeros:maior {numeros*}';
+    protected $signature = 'numeros:menor {numeros*}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Retorna o maior número';
+    protected $description = 'Retorna o menor número';
 
     /**
      * Create a new command instance.
@@ -39,7 +39,7 @@ class maior extends Command
     public function handle()
     {
         $this->info(
-            sprintf('Números Maior: %d', Numbers::max($this->argument('numeros')))
+            sprintf('Números Menor: %d', Numbers::min($this->argument('numeros')))
         );
         return 0;
     }

@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Helpers\Numbers;
 use Illuminate\Console\Command;
 
-class par extends Command
+class Par extends Command
 {
     /**
      * The name and signature of the console command.

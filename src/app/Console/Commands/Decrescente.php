@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Helpers\Numbers;
 use Illuminate\Console\Command;
 
-class decrescente extends Command
+class Decrescente extends Command
 {
     /**
      * The name and signature of the console command.
