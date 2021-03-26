@@ -1,0 +1,1 @@
+<a href="{{route('students', ['ra' => '2020'])}}">Aluno 2020</a>
